@@ -1,44 +1,47 @@
-function lastTwoCountSum(){
-  const table = document.getElementById("tableBody");
-  const lastCount = Number(table.rows[table.rows.length-1].cells[1].innerHTML); const lastCount2 = Number(table.rows[table.rows.length-2].cells[1].innerHTML);
-  const lastTwoSum = lastCount + lastCount2;
-  document.getElementById("lastTwoCount").innerHTML = "LAST TWO TOTAL: " + lastTwoSum;
+function removeRow(el) {
+    $(el).parents("tr").remove();
+    $("#inputNumber").focus();
+    lastTwoCountSum();
+    sumCount();      
 }
-lastTwoCountSum();
 
-function addRow() {
-  const table = document.getElementById("tableBody");
-  let inputNumber = parseInt(document.getElementById("inputNumber").value);
-  
+function addButton(){
+    $("#inputNumber").focus()
+}
+
+function lastTwoCountSum(){
+  try{
+    let sumLastTwo = parseInt($(".count").get(-1).innerHTML) + parseInt($(".count").get(-2).innerHTML);
+  $("#lastTwoCount").html("Last two total is: " + sumLastTwo)
+  }catch(err){
+    $("#lastTwoCount").html("Not enoght number's for last two SUM")
+  }
+
+}
+
+function clearField(){
+  $('#inputNumber').val("")
+}
+function submitButton() {
+  let inputNumber = parseInt($("#inputNumber").val());
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-    const row = table.insertRow(-1);
-    let cell = row.insertCell();
-
-    cell.innerHTML = "02.02.2021";
-    cell = row.insertCell();
-    cell.innerHTML = parseInt(inputNumber);
-    cell = row.insertCell();
-    cell.innerHTML = "add/remove";
-    document.getElementById('inputNumber').value = ''
-  }
-  
-}
+     $("#tableBody").after('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="addButton()">Add</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     clearField();
+     $("#inputNumber").focus() 
+     sumCount();
+     lastTwoCountSum()
+  } 
+};
 
 function sumCount(){
-  const table = document.getElementById("tableBody");
   let sumVal = 0;
-  for(let i = 0; i < table.rows.length; i++){
-    sumVal = sumVal + parseInt(table.rows[i].cells[1].innerHTML);
+  for(let i = 0; i < $(".count").length; i++){
+    sumVal = sumVal + parseInt($(".count").get(i).innerHTML);
   }
-  document.getElementById("total").innerHTML = sumVal;
-}
+  $("#total").html(sumVal)
+};
+
+lastTwoCountSum();
 sumCount();
-  
-document.getElementById("submitButton").addEventListener('click', addRow
-);
-document.getElementById("submitButton").addEventListener('click', sumCount
-);
-document.getElementById("submitButton").addEventListener('click', lastTwoCountSum
-);
