@@ -8,17 +8,17 @@ lastTwoCountSum();
 
 function addRow() {
   const table = document.getElementById("tableBody");
-  let inputNumber = document.getElementById("inputNumber").value;
+  let inputNumber = parseInt(document.getElementById("inputNumber").value);
   
-  if(inputNumber === ""){
-    alert("Please enter a number!")
+  if(inputNumber === "" || isNaN(inputNumber)){
+    alert("Only Numbers allowed in this field!")
   }else{
     const row = table.insertRow(-1);
     let cell = row.insertCell();
 
     cell.innerHTML = "02.02.2021";
     cell = row.insertCell();
-    cell.innerHTML = inputNumber;
+    cell.innerHTML = parseInt(inputNumber);
     cell = row.insertCell();
     cell.innerHTML = "add/remove";
     document.getElementById('inputNumber').value = ''
