@@ -27,7 +27,7 @@ function submitButton() {
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-     $("#tableBody").after('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="addButton()">Add</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="addButton()">Add</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
      $("#inputNumber").focus() 
      sumCount();
