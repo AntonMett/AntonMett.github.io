@@ -17,26 +17,27 @@ function lastTwoCountSum(){
 function clearField(){
   $('#inputNumber').val("")
 }
+
 function submitButton() {
   let inputNumber = parseInt($("#inputNumber").val());
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="addButton()">Add</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button>Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
      focusInput();
      sumCount();
      lastTwoCountSum()
   } 
-};
+}
 
 function sumCount(){
   let sumVal = 0;
   for(let i = 0; i < $(".count").length; i++){
-    sumVal = sumVal + parseInt($(".count").eq(i).html());
+    sumVal = sumVal + parseInt($(".count").eq(i).html())
   }
   $("#total").html(sumVal)
-};
+}
 
 lastTwoCountSum();
 sumCount();
