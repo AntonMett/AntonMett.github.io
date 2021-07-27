@@ -1,6 +1,6 @@
 function removeRow(el) {
     $(el).parents("tr").remove();
-    $("#inputNumber").focus();
+    focusInput();
     lastTwoCountSum();
     sumCount();      
 }
@@ -18,12 +18,12 @@ function clearField(){
   $('#inputNumber').val("")
 }
 
-function submitButton() {
+function submitNumber() {
   let inputNumber = parseInt($("#inputNumber").val());
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button>Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
      focusInput();
      sumCount();
