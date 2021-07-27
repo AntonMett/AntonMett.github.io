@@ -5,18 +5,13 @@ function removeRow(el) {
     sumCount();      
 }
 
-function addButton(){
+function focusInput(){
     $("#inputNumber").focus()
 }
 
 function lastTwoCountSum(){
-  try{
-    let sumLastTwo = parseInt($(".count").get(-1).innerHTML) + parseInt($(".count").get(-2).innerHTML);
-  $("#lastTwoCount").html("Last two total is: " + sumLastTwo)
-  }catch(err){
-    $("#lastTwoCount").html("Not enoght number's for last two SUM")
-  }
-
+  let sumLastTwo = parseInt($(".count").eq(-1).html()) + parseInt($(".count").eq(-2).html());
+  isNaN(sumLastTwo) ? $("#lastTwoCount").html("Not enoght number's for last two SUM") : $("#lastTwoCount").html("Last two total is: " + sumLastTwo);
 }
 
 function clearField(){
@@ -29,7 +24,7 @@ function submitButton() {
   }else{
      $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="addButton()">Add</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
-     $("#inputNumber").focus() 
+     focusInput();
      sumCount();
      lastTwoCountSum()
   } 
@@ -38,7 +33,7 @@ function submitButton() {
 function sumCount(){
   let sumVal = 0;
   for(let i = 0; i < $(".count").length; i++){
-    sumVal = sumVal + parseInt($(".count").get(i).innerHTML);
+    sumVal = sumVal + parseInt($(".count").eq(i).html());
   }
   $("#total").html(sumVal)
 };
