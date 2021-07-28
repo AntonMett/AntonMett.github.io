@@ -23,7 +23,7 @@ function submitNumber() {
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button onclick="resetCalendar()" type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
      focusInput();
      sumCount();
@@ -38,6 +38,12 @@ function sumCount(){
   }
   $("#total").html(sumVal)
 }
+function resetCalendar(){
+  $('#datepicker').datepicker('clearDates')
+}
 
 lastTwoCountSum();
 sumCount();
+$('#datepicker').datepicker({
+    todayHighlight: true
+});
