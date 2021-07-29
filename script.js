@@ -50,16 +50,16 @@ $('#datepicker').datepicker({
     format: 'dd.mm.yyyy'
 })
 
-$("#savechangesbutton").click(()=> {
-  let newDate = $('#datepicker').datepicker('getFormattedDate');
-  $(".date").eq(rowIndex).html(newDate);
-});
-
 let rowIndex = 0;
 function selectDateIndex(el) {
   let getRowIndex = parseInt(($(el).parents("tr").index()));
   rowIndex = getRowIndex;
 }
+
+$("#savechangesbutton").click(()=> {
+  let newDate = $('#datepicker').datepicker('getFormattedDate');
+  $(".date").eq(rowIndex).html(newDate);
+});
 
 lastTwoCountSum();
 sumCount();
