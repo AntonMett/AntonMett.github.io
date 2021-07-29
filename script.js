@@ -20,10 +20,14 @@ function clearField(){
 
 function submitNumber() {
   let inputNumber = parseInt($("#inputNumber").val());
+  let fullDate = new Date();
+  let twoDigitMonth = fullDate.getMonth()+"";if(twoDigitMonth.length==1)	twoDigitMonth="0" +twoDigitMonth;
+  let twoDigitDate = fullDate.getDate()+"";if(twoDigitDate.length==1)	twoDigitDate="0" +twoDigitDate;
+  let currentDate = twoDigitDate + "." + twoDigitMonth + "." + fullDate.getFullYear();console.log(currentDate);
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button onclick="resetCalendar(), selectDateIndex(this)" type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     $("#tableBody").append('<tr><td class="date">'+currentDate+'</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button onclick="resetCalendar(), selectDateIndex(this)" type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
      focusInput();
      sumCount();
