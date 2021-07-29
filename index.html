@@ -43,11 +43,11 @@
         </thead>
         <tbody id="tableBody">
           <tr>
-              <td class="date">02.02.2021</td>
+              <td class="date">02.01.2021</td>
               <td class="count">1</td>
               <td class="actionButton">
                 <button onclick="focusInput()">Add</button>
-                <button onclick="resetCalendar()" type="button" data-toggle="modal" data-target="#myModal">Edit</button>
+                <button onclick="resetCalendar(), selectEditDate(this)" type="button" data-toggle="modal" data-target="#myModal">Edit</button>
                 <button onclick="removeRow(this)">Remove</button>
               </td>
           </tr>
@@ -61,7 +61,7 @@
               </td>
           </tr>
           <tr>
-              <td class="date">02.02.2021</td>
+              <td class="date">02.03.2021</td>
               <td class="count">3</td>
               <td class="actionButton">
                 <button onclick="focusInput()">Add</button>
@@ -84,16 +84,19 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Choose Date</h4>
+              <h4 class="modal-title">Choose New Date</h4>
               <button type="button" class="close"
-                data-dismiss="modal">&times;</button>
+                data-dismiss="modal">&times;
+              </button>
             </div>
             <div class="modal-body">
-              <div id="datepicker"></div>
+              <div id="datepicker" class="container pt-3 d-flex justify-content-center"></div>
+              <input type="hidden" id="my_hidden_input">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger"
                 data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="savechangesbutton">Save changes</button>
             </div>
       
           </div>

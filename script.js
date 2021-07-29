@@ -39,11 +39,21 @@ function sumCount(){
   $("#total").html(sumVal)
 }
 function resetCalendar(){
-  $('#datepicker').datepicker('clearDates')
+  $('#datepicker').datepicker('clearDates');
+}
+$('#datepicker').datepicker({
+    todayHighlight: true,
+    format: 'dd.mm.yyyy'
+})
+
+$("#savechangesbutton").click(()=> console.log($('#datepicker').datepicker('getFormattedDate')));
+
+let editDateRow = $(".date").eq(1).html();
+console.log(editDateRow)
+
+function selectEditDate(el) {
+  console.log($(el).htlm())
 }
 
 lastTwoCountSum();
 sumCount();
-$('#datepicker').datepicker({
-    todayHighlight: true
-});
