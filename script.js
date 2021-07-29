@@ -23,7 +23,7 @@ function submitNumber() {
   if(inputNumber === "" || isNaN(inputNumber)){
     alert("Only Numbers allowed in this field!")
   }else{
-     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button onclick="resetCalendar()" type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
+     $("#tableBody").append('<tr><td class="date">02.02.2021</td><td class="count">'+inputNumber+'</td><td class="actionButton"><button onclick="focusInput()">Add</button> <button onclick="resetCalendar(), selectDateIndex(this)" type="button" data-toggle="modal" data-target="#myModal">Edit</button> <button onclick="removeRow(this)">Remove</button></td></tr>');
      clearField();
      focusInput();
      sumCount();
@@ -46,13 +46,15 @@ $('#datepicker').datepicker({
     format: 'dd.mm.yyyy'
 })
 
-$("#savechangesbutton").click(()=> console.log($('#datepicker').datepicker('getFormattedDate')));
+$("#savechangesbutton").click(()=> {
+  let newDate = $('#datepicker').datepicker('getFormattedDate');
+  $(".date").eq(rowIndex).html(newDate);
+});
 
-let editDateRow = $(".date").eq(1).html();
-console.log(editDateRow)
-
-function selectEditDate(el) {
-  console.log($(el).htlm())
+let rowIndex = 0;
+function selectDateIndex(el) {
+  let getRowIndex = parseInt(($(el).parents("tr").index()));
+  rowIndex = getRowIndex;
 }
 
 lastTwoCountSum();
