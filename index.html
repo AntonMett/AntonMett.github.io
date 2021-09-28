@@ -1,108 +1,296 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LEARNING</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PHMTMWM");
     </script>
+    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics  -->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
-      integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer">
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-T6T3MCEB23"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-206143854-1");
+      gtag("config", "G-T6T3MCEB23");
     </script>
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
-      integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-      crossorigin="anonymous">
+    <!-- Google Analytics -->
+    <script>
+      window.ga =
+        window.ga ||
+        function () {
+          (ga.q = ga.q || []).push(arguments);
+        };
+      ga.l = +new Date();
+      ga("create", "UA-206143854-1", "auto");
+      ga("send", "pageview");
     </script>
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous">
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    <!-- End Google Analytics -->
+    <title>Proovitöö</title>
   </head>
   <body>
-    <div class="container pt-3 border">
-      <input id="inputNumber" placeholder="Enter Number"> 
-      <input type="submit" id="submitButton" onclick="submitNumber()"><br><br>
-      <table class="table table-striped table-hover table-sm" id="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Count</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <tr>
-              <td class="date">02.01.2021</td>
-              <td class="count">1</td>
-              <td class="actionButton">
-                <button onclick="focusInput()">Add</button>
-                <button onclick="resetCalendar(), selectDateIndex(this)" type="button" data-toggle="modal" data-target="#myModal">Edit</button>
-                <button onclick="removeRow(this)">Remove</button>
-              </td>
-          </tr>
-          <tr>
-              <td class="date">02.02.2021</td>
-              <td class="count">2</td>
-              <td class="actionButton">
-                <button onclick="focusInput()">Add</button>
-                <button onclick="resetCalendar(), selectDateIndex(this)" type="button" data-toggle="modal" data-target="#myModal">Edit</button>
-                <button onclick="removeRow(this)">Remove</button>
-              </td>
-          </tr>
-          <tr>
-              <td class="date">02.03.2021</td>
-              <td class="count">3</td>
-              <td class="actionButton">
-                <button onclick="focusInput()">Add</button>
-                <button onclick="resetCalendar(), selectDateIndex(this)"type="button" data-toggle="modal" data-target="#myModal">Edit</button>
-                <button onclick="removeRow(this)">Remove</button>
-              </td>     
-          </tr>
-          
-        </tbody>
-          <tr class="table-primary">
-              <td >TOTAL:</td>
-              <td colspan="2" id="total"></td>
-          </tr>
-      </table>
-      <div id="lastTwoCount"></div>
-      <div class="container pt-3 d-flex justify-content-center">
-        <a href="https://github.com/AntonMett/AntonMett.github.io" class="btn btn-success" role="button">SOURCE</a>
-      </div>
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Choose New Date</h4>
-              <button type="button" class="close"
-                data-dismiss="modal">&times;
-              </button>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PHMTMWM"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="container-fluid">
+      <div class="container-fluid header">
+        <div class="container header-container">
+          <div class="row">
+            <div class="col-sm-12 col-md-4 header-text">
+              <div class="d-flex justify-content-center">
+                <h1 class="header-slogan">MEIEGA VÕIDAVAD KÕIK!</h1>
+              </div>
+              <div>
+                <p>
+                  Elisast saavad kõik osta vägeva iPhone 11 Pro 0 € sissemakse,
+                  0% intressi ja tasuta koju toomisega – puhas võit! Kampaania
+                  tingimused leiad <a href="#" class="link">siit</a>.
+                </p>
+              </div>
             </div>
-            <div class="modal-body">
-              <div id="datepicker" class="container pt-3 d-flex justify-content-center"></div>
-              <input type="hidden" id="my_hidden_input">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger"
-                data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" id="savechangesbutton">Save changes</button>
-            </div>
-      
           </div>
         </div>
       </div>
-    </div> 
-    <script src="script.js"></script>
+
+      <div class="container mt-5 pt-5">
+        <div class="row flex-column-reverse flex-md-row">
+          <div class="col-md-6 col-sm-12 mt-5">
+            <div
+              class="
+                d-flex
+                justify-content-center justify-content-md-start
+                text-center
+              "
+            >
+              <h2 class="product-title">Apple iPhone 11 Pro 256GB</h2>
+            </div>
+            <div
+              class="
+                d-flex
+                justify-content-center justify-content-md-start
+                text-center text-md-start
+              "
+            >
+              <p class="product-description">
+                Apple iPhone 11 Pro 256GB Legendaarselt lihtne, kuid
+                skandaalselt nutikas. Võimas kolmikkaamera teeb kõike, mida
+                soovida oskad, kuid veel paremini.
+              </p>
+            </div>
+
+            <div class="d-flex justify-content-center justify-content-md-start">
+              <ul class="main-offer-specs">
+                <li>Kvaliteetne 5,8“ ekraan</li>
+                <li>Kõrgema taseme fotovõimekus</li>
+                <li>Juhtmevaba laadimine</li>
+              </ul>
+            </div>
+
+            <div class="container-fluid product-price">
+              <div class="text-center text-md-start">
+                <span class="price-month">47.88 €</span
+                ><span class="text-muted">/kuus</span>
+              </div>
+              <div class="text-center text-md-start">
+                <span class="discount-price">Soodushind 1149 €</span
+                ><span class="text-muted text-decoration-line-through">
+                  1229 €</span
+                >
+              </div>
+            </div>
+            <div
+              class="
+                d-flex
+                justify-content-center justify-content-md-start
+                pt-5
+              "
+            >
+              <button
+                type="button"
+                onclick="ga('send', 'event', 'click on KNOW_MORE button', 'click', 'id = IphoneKampaania');
+                window.open('https://www.elisa.ee/seadmed/eraklient/nutitelefonid?vendor=APPLE&sortType=private_focus','_blank');"
+                class="blue-button"
+              >
+                Vaata lähemalt
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 d-flex justify-content-center">
+            <img
+              src="/iphone11-pro-256gb.jpg"
+              onclick=" ga('send', 'event', 'click on Picture', 'click', 'id = IphoneKampaania');window.open('https://www.elisa.ee/seadmed/eraklient/nutitelefonid?vendor=APPLE&sortType=private_focus','_blank');"
+              alt=""
+              class="main-offer-img"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid mt-5 text-center text-muted">
+        <i class="bi bi-chat-right-quote" style="font-size: 2rem"
+          >Võta ka nutikindlustus - esimesed 3 kuud tasuta!</i
+        >
+      </div>
+      <div class="container-fluid mt-5 mb-5 products">
+        <div class="row">
+          <div
+            class="
+              col-sm-12 col-md-4
+              border
+              d-flex
+              justify-content-center
+              pt-5
+              pb-5
+            "
+            onclick=" ga('send', 'event', 'click on SAMSUNG', 'click', 'id = IphoneKampaania');window.location='https://www.elisa.ee/seadmed/eraklient/nutitelefonid?vendor=SAMSUNG&sortType=private_focus';"
+          >
+            <div class="row">
+              <div class="col-4 col-md-12 d-flex justify-content-center">
+                <img
+                  src="/samsung-galaxy-a51.png"
+                  alt=""
+                  class="img-fluid im img-discount"
+                />
+              </div>
+              <div class="col-8 col-md-12">
+                <div class="text-start text-md-center pt-md-5">
+                  <h3 class="product-title">Samsung Galaxy A51</h3>
+                </div>
+                <div class="product-price">
+                  <div class="text-start text-md-center">
+                    <span class="price-month">12.04 €</span
+                    ><span class="text-muted">/kuus</span>
+                  </div>
+                  <div class="text-start text-md-center">
+                    <span class="discount-price">Hind: 289 €</span
+                    ><span class="text-muted text-decoration-line-through">
+                      379 €</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              col-sm-12 col-md-4
+              border
+              d-flex
+              justify-content-center
+              pt-5
+              pb-5
+            "
+            onclick=" ga('send', 'event', 'click on HUAWEI', 'click', 'id = IphoneKampaania');window.location='https://www.elisa.ee/seadmed/eraklient/nutitelefonid?vendor=HUAWEI&sortType=private_focus';"
+          >
+            <div class="row">
+              <div class="col-4 col-md-12 d-flex justify-content-center">
+                <img
+                  src="/huawei-p30.jpg"
+                  alt=""
+                  class="img-fluid img-discount"
+                />
+              </div>
+              <div class="col-8 col-md-12">
+                <div class="text-start text-md-center pt-md-5">
+                  <h3 class="product-title">Huawei P30</h3>
+                </div>
+                <div class="product-price">
+                  <div class="text-start text-md-center">
+                    <span class="price-month">17.88 €</span
+                    ><span class="text-muted">/kuus</span>
+                  </div>
+                  <div class="text-start text-md-center">
+                    <span class="discount-price">Hind: 429 €</span
+                    ><span class="text-muted text-decoration-line-through">
+                      479 €</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              col-sm-12 col-md-4
+              border
+              d-flex
+              justify-content-center
+              pt-5
+              pb-5
+            "
+            onclick=" ga('send', 'event', 'click on IPHONE', 'click', 'id = IphoneKampaania');window.location='https://www.elisa.ee/seadmed/eraklient/nutitelefonid?vendor=APPLE&sortType=private_focus';"
+          >
+            <div class="row">
+              <div class="col-4 col-md-12 d-flex justify-content-center">
+                <img
+                  src="/iphone-se-2020-64gb.png"
+                  alt=""
+                  class="img-fluid img-discount"
+                />
+              </div>
+              <div class="col-8 col-md-12">
+                <div class="text-start text-md-center pt-md-5">
+                  <h3 class="product-title">iPhone SE 2020 64GB</h3>
+                </div>
+                <div class="product-price">
+                  <div class="text-start text-md-center">
+                    <span class="price-month">20.38 €</span
+                    ><span class="text-muted">/kuus</span>
+                  </div>
+                  <div class="text-start text-md-center">
+                    <span class="discount-price">Hind: 489 €</span
+                    ><span class="text-muted text-decoration-line-through">
+                      510 €</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

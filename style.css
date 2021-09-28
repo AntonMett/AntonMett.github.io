@@ -1,0 +1,77 @@
+.img-discount {
+  max-height: 13rem;
+  max-width: auto;
+}
+.price-month {
+  color: orange;
+  font-weight: 900;
+  font-size: 2rem;
+}
+.discount-price {
+  color: orange;
+}
+.link {
+  font-weight: bold;
+  text-decoration: none;
+}
+.product-title {
+  color: #0019af;
+  font-weight: bold;
+}
+.header-slogan {
+  color: #0019af;
+  font-weight: bold;
+}
+.main-offer-specs {
+  font-weight: 600;
+}
+.header {
+  background-image: url(/kampaania_paisepilt.jpg);
+  max-width: 2000px;
+  background-position-x: right;
+  min-height: 35rem;
+}
+.product-description {
+  color: #0019af;
+}
+.main-offer-img {
+  width: 25rem;
+  cursor: pointer;
+}
+.products {
+  max-width: 2000px;
+  cursor: pointer;
+}
+.header-container {
+  position: relative;
+  min-height: 35rem;
+}
+.header-text {
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.blue-button {
+  background-color: #0019af;
+  border: none;
+  color: white;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .header {
+    background-size: 45rem;
+    background-repeat: no-repeat;
+    min-height: 10rem;
+  }
+  .header-container {
+    min-height: 27rem;
+  }
+  .main-offer-img {
+    width: 10rem;
+  }
+}
